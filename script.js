@@ -61,27 +61,22 @@ function optionClickEvent(e) {
   const pontos = Math.floor((correctAnswers / questions.length) * 100);
 
   // Implementar condicionais para inserir mensagem e cor do placar de acordo com a pontuação.
-  let mensagem = "";
-
+  let mensagem = ''
   if (pontos < 50) {
-    // Se a pontuação for menor que 50, a mensagem é "Precisa estudar mais..." e a cor é vermelha
-    mensagem = "Precisa estudar mais...";
-    let elemento = document.querySelector(".scoreText2");
+    let elemento = document.querySelector(".scoreText2"); 
+    mensagem = elemento.innerHTML = "Você respondeu " + questions.length + " questões e acertou " + correctAnswers + "."; 
     elemento.style.setProperty("color", "red");
     document.querySelector(".scoreText1").style.display = "none";
   } else if (pontos < 80) {
-    // Se a pontuação for maior ou igual a 50 e menor que 80, a mensagem é "Muito bom!" e a cor é amarela
-    mensagem = "Muito bom!";
     let elemento = document.querySelector(".scoreText2");
+    mensagem = elemento.innerHTML = "Você respondeu " + questions.length + " questões e acertou " + correctAnswers + "."; 
     elemento.style.setProperty("color", "yellow");
     document.querySelector(".scoreText1").style.display = "none";
   } else {
-    // Se a pontuação for maior ou igual a 80, a mensagem é "Parabéns, você mandou bem!" e a cor é verde
-    mensagem = "Parabéns, você mandou bem!";
     let elemento = document.querySelector(".scoreText2");
+    mensagem = elemento.innerHTML = "Você respondeu " + questions.length + " questões e acertou " + correctAnswers + "."; 
     elemento.style.setProperty("color", "green");
   }
-
   // Inserir a pontuação em .scorePct e o texto em .scoreText2
   document.querySelector(".scorePct").innerHTML = `${pontos}%`;
   document.querySelector(".scoreText2").innerHTML = mensagem;
@@ -93,8 +88,9 @@ function optionClickEvent(e) {
   // Deixar a .progress--bar em 100%
   document.querySelector(".progress--bar").style.width = "100%";
   console.log(pontos);
-
 }
+
+
 
 function resetEvent() {
   // Redefina os valores de correctAnswers e currentQuestion para 0
